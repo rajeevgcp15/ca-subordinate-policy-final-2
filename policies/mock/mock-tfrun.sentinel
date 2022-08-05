@@ -1,0 +1,43 @@
+id = "run-GUEwsc7mJbYdNuvX"
+created_at = "2022-08-04T05:17:25.559Z"
+message = "final push"
+commit_sha = "f4f1943a11499c7e8ce3b8bf12e5551e550b31cd"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"GOOGLE_CREDENTIALS": {
+		"category":  "env",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "Wells-Phase3-2",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2022-08-03T07:24:06.184Z",
+	"description": null,
+	"id":          "ws-GH2vG3DmC2rQXkVq",
+	"name":        "ca-subordinate",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "rajeevkghosh/ca-subordinate",
+		"identifier":         "rajeevkghosh/ca-subordinate",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}
+
+cost_estimate = {
+	"delta_monthly_cost":    "0.0",
+	"prior_monthly_cost":    "0.0",
+	"proposed_monthly_cost": "0.0",
+}

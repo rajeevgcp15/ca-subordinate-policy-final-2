@@ -1,0 +1,1752 @@
+terraform_version = "1.0.8"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_dataproc_cluster.cluster-wsae": {
+			"address":        "google_dataproc_cluster.cluster-wsae",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "cluster-wsae",
+			"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+			"tainted":        false,
+			"type":           "google_dataproc_cluster",
+			"values": {
+				"cluster_config": [
+					{
+						"autoscaling_config": [],
+						"encryption_config": [
+							{
+								"kms_key_name": "",
+							},
+						],
+						"endpoint_config": [
+							{
+								"enable_http_port_access": false,
+							},
+						],
+						"gce_cluster_config": [
+							{
+								"internal_ip_only": true,
+								"metadata":         null,
+								"service_account":  "demo-sentinel-sa@common.iam.gserviceaccount.com",
+								"subnetwork":       "projects/common/regions/us-east1/subnetworks/savita-subnet-vpc-2",
+								"tags": [
+									"bar",
+									"foo",
+								],
+							},
+						],
+						"initialization_action": [],
+						"lifecycle_config":      [],
+						"master_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 1,
+							},
+						],
+						"metastore_config": [],
+						"preemptible_worker_config": [
+							{
+								"num_instances": 0,
+							},
+						],
+						"security_config": [],
+						"software_config": [
+							{
+								"image_version":       "1.3.7-deb9",
+								"optional_components": null,
+								"override_properties": {
+									"dataproc:dataproc.allow.zero.workers": "true",
+								},
+							},
+						],
+						"staging_bucket": "dataproc-staging-bucket123",
+						"worker_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 2,
+							},
+						],
+					},
+				],
+				"graceful_decommission_timeout": "120s",
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "",
+					"application_role":     "auth",
+					"au":                   "",
+					"created":              "20211001",
+					"environment":          "dev",
+					"gcp_region":           "us-central1",
+					"owner":                "wf",
+				},
+				"name":     "cluster-wsae",
+				"project":  "common",
+				"region":   "us-east1",
+				"timeouts": null,
+			},
+		},
+		"google_dataproc_cluster.cluster-wsar": {
+			"address":        "google_dataproc_cluster.cluster-wsar",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "cluster-wsar",
+			"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+			"tainted":        false,
+			"type":           "google_dataproc_cluster",
+			"values": {
+				"cluster_config": [
+					{
+						"autoscaling_config": [],
+						"encryption_config": [
+							{
+								"kms_key_name": "",
+							},
+						],
+						"endpoint_config": [
+							{
+								"enable_http_port_access": false,
+							},
+						],
+						"gce_cluster_config": [
+							{
+								"internal_ip_only": true,
+								"metadata":         null,
+								"service_account_scopes": [
+									"https://www.googleapis.com/auth/cloud-platform",
+								],
+								"subnetwork": "projects/common/regions/us-central1/subnetworks/savita-subnet-vpc1",
+								"tags": [
+									"bar",
+									"foo",
+								],
+							},
+						],
+						"initialization_action": [],
+						"lifecycle_config":      [],
+						"master_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 1,
+							},
+						],
+						"metastore_config": [],
+						"preemptible_worker_config": [
+							{
+								"num_instances": 0,
+							},
+						],
+						"security_config": [],
+						"software_config": [
+							{
+								"image_version":       "1.3.7-deb9",
+								"optional_components": null,
+								"override_properties": {
+									"dataproc:dataproc.allow.zero.workers": "true",
+								},
+							},
+						],
+						"staging_bucket": "dataproc-staging-bucket123",
+						"worker_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 2,
+							},
+						],
+					},
+				],
+				"graceful_decommission_timeout": "120s",
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "",
+					"application_role":     "auth",
+					"au":                   "",
+					"created":              "20211001",
+					"environment":          "dev",
+					"gcp_region":           "us-central1",
+					"owner":                "wf",
+				},
+				"name":     "cluster-wsar",
+				"project":  "common",
+				"region":   "us-central1",
+				"timeouts": null,
+			},
+		},
+		"google_project_iam_member.dataproc-worker": {
+			"address":        "google_project_iam_member.dataproc-worker",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "dataproc-worker",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_project_iam_member",
+			"values": {
+				"condition": [],
+				"project":   "common",
+				"role":      "roles/dataproc.worker",
+			},
+		},
+		"google_service_account.dataproc-sa": {
+			"address":        "google_service_account.dataproc-sa",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "dataproc-sa",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_service_account",
+			"values": {
+				"account_id":   "dataproc-sa-id",
+				"description":  null,
+				"disabled":     false,
+				"display_name": "Service Account",
+				"project":      "common",
+				"timeouts":     null,
+			},
+		},
+	},
+}
+
+variables = {
+	"access_token": {
+		"name":  "access_token",
+		"value": "REDACTED_SENSITIVE",
+	},
+}
+
+resource_changes = {
+	"google_dataproc_cluster.cluster-wsae": {
+		"address": "google_dataproc_cluster.cluster-wsae",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cluster_config": [
+					{
+						"autoscaling_config": [],
+						"encryption_config": [
+							{
+								"kms_key_name": "",
+							},
+						],
+						"endpoint_config": [
+							{
+								"enable_http_port_access": false,
+							},
+						],
+						"gce_cluster_config": [
+							{
+								"internal_ip_only": true,
+								"metadata":         null,
+								"service_account":  "demo-sentinel-sa@common.iam.gserviceaccount.com",
+								"subnetwork":       "projects/common/regions/us-east1/subnetworks/savita-subnet-vpc-2",
+								"tags": [
+									"bar",
+									"foo",
+								],
+							},
+						],
+						"initialization_action": [],
+						"lifecycle_config":      [],
+						"master_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 1,
+							},
+						],
+						"metastore_config": [],
+						"preemptible_worker_config": [
+							{
+								"num_instances": 0,
+							},
+						],
+						"security_config": [],
+						"software_config": [
+							{
+								"image_version":       "1.3.7-deb9",
+								"optional_components": null,
+								"override_properties": {
+									"dataproc:dataproc.allow.zero.workers": "true",
+								},
+							},
+						],
+						"staging_bucket": "dataproc-staging-bucket123",
+						"worker_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 2,
+							},
+						],
+					},
+				],
+				"graceful_decommission_timeout": "120s",
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "",
+					"application_role":     "auth",
+					"au":                   "",
+					"created":              "20211001",
+					"environment":          "dev",
+					"gcp_region":           "us-central1",
+					"owner":                "wf",
+				},
+				"name":     "cluster-wsae",
+				"project":  "common",
+				"region":   "us-east1",
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"cluster_config": [
+					{
+						"autoscaling_config": [],
+						"bucket":             true,
+						"encryption_config": [
+							{},
+						],
+						"endpoint_config": [
+							{
+								"http_ports": true,
+							},
+						],
+						"gce_cluster_config": [
+							{
+								"network":                  true,
+								"service_account_scopes":   true,
+								"shielded_instance_config": true,
+								"tags": [
+									false,
+									false,
+								],
+								"zone": true,
+							},
+						],
+						"initialization_action": [],
+						"lifecycle_config":      [],
+						"master_config": [
+							{
+								"accelerators":     [],
+								"disk_config":      true,
+								"image_uri":        true,
+								"instance_names":   true,
+								"min_cpu_platform": true,
+							},
+						],
+						"metastore_config": [],
+						"preemptible_worker_config": [
+							{
+								"disk_config":    true,
+								"instance_names": true,
+							},
+						],
+						"security_config": [],
+						"software_config": [
+							{
+								"override_properties": {},
+								"properties":          true,
+							},
+						],
+						"temp_bucket": true,
+						"worker_config": [
+							{
+								"accelerators":     [],
+								"disk_config":      true,
+								"image_uri":        true,
+								"instance_names":   true,
+								"min_cpu_platform": true,
+							},
+						],
+					},
+				],
+				"id":     true,
+				"labels": {},
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "cluster-wsae",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_dataproc_cluster",
+	},
+	"google_dataproc_cluster.cluster-wsar": {
+		"address": "google_dataproc_cluster.cluster-wsar",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"cluster_config": [
+					{
+						"autoscaling_config": [],
+						"encryption_config": [
+							{
+								"kms_key_name": "",
+							},
+						],
+						"endpoint_config": [
+							{
+								"enable_http_port_access": false,
+							},
+						],
+						"gce_cluster_config": [
+							{
+								"internal_ip_only": true,
+								"metadata":         null,
+								"service_account_scopes": [
+									"https://www.googleapis.com/auth/cloud-platform",
+								],
+								"subnetwork": "projects/common/regions/us-central1/subnetworks/savita-subnet-vpc1",
+								"tags": [
+									"bar",
+									"foo",
+								],
+							},
+						],
+						"initialization_action": [],
+						"lifecycle_config":      [],
+						"master_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 1,
+							},
+						],
+						"metastore_config": [],
+						"preemptible_worker_config": [
+							{
+								"num_instances": 0,
+							},
+						],
+						"security_config": [],
+						"software_config": [
+							{
+								"image_version":       "1.3.7-deb9",
+								"optional_components": null,
+								"override_properties": {
+									"dataproc:dataproc.allow.zero.workers": "true",
+								},
+							},
+						],
+						"staging_bucket": "dataproc-staging-bucket123",
+						"worker_config": [
+							{
+								"accelerators":  [],
+								"machine_type":  "e2-medium",
+								"num_instances": 2,
+							},
+						],
+					},
+				],
+				"graceful_decommission_timeout": "120s",
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "",
+					"application_role":     "auth",
+					"au":                   "",
+					"created":              "20211001",
+					"environment":          "dev",
+					"gcp_region":           "us-central1",
+					"owner":                "wf",
+				},
+				"name":     "cluster-wsar",
+				"project":  "common",
+				"region":   "us-central1",
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"cluster_config": [
+					{
+						"autoscaling_config": [],
+						"bucket":             true,
+						"encryption_config": [
+							{},
+						],
+						"endpoint_config": [
+							{
+								"http_ports": true,
+							},
+						],
+						"gce_cluster_config": [
+							{
+								"network":         true,
+								"service_account": true,
+								"service_account_scopes": [
+									false,
+								],
+								"shielded_instance_config": true,
+								"tags": [
+									false,
+									false,
+								],
+								"zone": true,
+							},
+						],
+						"initialization_action": [],
+						"lifecycle_config":      [],
+						"master_config": [
+							{
+								"accelerators":     [],
+								"disk_config":      true,
+								"image_uri":        true,
+								"instance_names":   true,
+								"min_cpu_platform": true,
+							},
+						],
+						"metastore_config": [],
+						"preemptible_worker_config": [
+							{
+								"disk_config":    true,
+								"instance_names": true,
+							},
+						],
+						"security_config": [],
+						"software_config": [
+							{
+								"override_properties": {},
+								"properties":          true,
+							},
+						],
+						"temp_bucket": true,
+						"worker_config": [
+							{
+								"accelerators":     [],
+								"disk_config":      true,
+								"image_uri":        true,
+								"instance_names":   true,
+								"min_cpu_platform": true,
+							},
+						],
+					},
+				],
+				"id":     true,
+				"labels": {},
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "cluster-wsar",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_dataproc_cluster",
+	},
+	"google_project_iam_member.dataproc-worker": {
+		"address": "google_project_iam_member.dataproc-worker",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"condition": [],
+				"project":   "common",
+				"role":      "roles/dataproc.worker",
+			},
+			"after_unknown": {
+				"condition": [],
+				"etag":      true,
+				"id":        true,
+				"member":    true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "dataproc-worker",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_project_iam_member",
+	},
+	"google_service_account.dataproc-sa": {
+		"address": "google_service_account.dataproc-sa",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"account_id":   "dataproc-sa-id",
+				"description":  null,
+				"disabled":     false,
+				"display_name": "Service Account",
+				"project":      "common",
+				"timeouts":     null,
+			},
+			"after_unknown": {
+				"email":     true,
+				"id":        true,
+				"name":      true,
+				"unique_id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "dataproc-sa",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_service_account",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"access_token": {
+						"references": [
+							"var.access_token",
+						],
+					},
+				},
+				"name": "google",
+			},
+			"google-beta": {
+				"expressions": {
+					"access_token": {
+						"references": [
+							"var.access_token",
+						],
+					},
+				},
+				"name": "google-beta",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_dataproc_cluster.cluster-wsae",
+					"expressions": {
+						"cluster_config": [
+							{
+								"encryption_config": [
+									{
+										"kms_key_name": {
+											"constant_value": "",
+										},
+									},
+								],
+								"endpoint_config": [
+									{
+										"enable_http_port_access": {
+											"constant_value": false,
+										},
+									},
+								],
+								"gce_cluster_config": [
+									{
+										"internal_ip_only": {
+											"constant_value": true,
+										},
+										"service_account": {
+											"constant_value": "demo-sentinel-sa@common.iam.gserviceaccount.com",
+										},
+										"subnetwork": {
+											"constant_value": "projects/common/regions/us-east1/subnetworks/savita-subnet-vpc-2",
+										},
+										"tags": {
+											"constant_value": [
+												"foo",
+												"bar",
+											],
+										},
+									},
+								],
+								"master_config": [
+									{
+										"machine_type": {
+											"constant_value": "e2-medium",
+										},
+										"num_instances": {
+											"constant_value": 1,
+										},
+									},
+								],
+								"preemptible_worker_config": [
+									{
+										"num_instances": {
+											"constant_value": 0,
+										},
+									},
+								],
+								"software_config": [
+									{
+										"image_version": {
+											"constant_value": "1.3.7-deb9",
+										},
+										"override_properties": {
+											"constant_value": {
+												"dataproc:dataproc.allow.zero.workers": "true",
+											},
+										},
+									},
+								],
+								"staging_bucket": {
+									"constant_value": "dataproc-staging-bucket123",
+								},
+								"worker_config": [
+									{
+										"machine_type": {
+											"constant_value": "e2-medium",
+										},
+										"num_instances": {
+											"constant_value": 2,
+										},
+									},
+								],
+							},
+						],
+						"graceful_decommission_timeout": {
+							"constant_value": "120s",
+						},
+						"labels": {
+							"constant_value": {
+								"application_division": "pci",
+								"application_name":     "",
+								"application_role":     "auth",
+								"au":                   "",
+								"created":              "20211001",
+								"environment":          "dev",
+								"gcp_region":           "us-central1",
+								"owner":                "wf",
+							},
+						},
+						"name": {
+							"constant_value": "cluster-wsae",
+						},
+						"project": {
+							"constant_value": "common",
+						},
+						"region": {
+							"constant_value": "us-east1",
+						},
+					},
+					"mode":                "managed",
+					"name":                "cluster-wsae",
+					"provider_config_key": "google-beta",
+					"schema_version":      0,
+					"type":                "google_dataproc_cluster",
+				},
+				{
+					"address": "google_dataproc_cluster.cluster-wsar",
+					"depends_on": [
+						"google_service_account.dataproc-sa",
+						"google_project_iam_member.dataproc-worker",
+					],
+					"expressions": {
+						"cluster_config": [
+							{
+								"encryption_config": [
+									{
+										"kms_key_name": {
+											"constant_value": "",
+										},
+									},
+								],
+								"endpoint_config": [
+									{
+										"enable_http_port_access": {
+											"constant_value": false,
+										},
+									},
+								],
+								"gce_cluster_config": [
+									{
+										"internal_ip_only": {
+											"constant_value": true,
+										},
+										"service_account": {
+											"references": [
+												"google_service_account.dataproc-sa.email",
+												"google_service_account.dataproc-sa",
+											],
+										},
+										"service_account_scopes": {
+											"constant_value": [
+												"cloud-platform",
+											],
+										},
+										"subnetwork": {
+											"constant_value": "projects/common/regions/us-central1/subnetworks/savita-subnet-vpc1",
+										},
+										"tags": {
+											"constant_value": [
+												"foo",
+												"bar",
+											],
+										},
+									},
+								],
+								"master_config": [
+									{
+										"machine_type": {
+											"constant_value": "e2-medium",
+										},
+										"num_instances": {
+											"constant_value": 1,
+										},
+									},
+								],
+								"preemptible_worker_config": [
+									{
+										"num_instances": {
+											"constant_value": 0,
+										},
+									},
+								],
+								"software_config": [
+									{
+										"image_version": {
+											"constant_value": "1.3.7-deb9",
+										},
+										"override_properties": {
+											"constant_value": {
+												"dataproc:dataproc.allow.zero.workers": "true",
+											},
+										},
+									},
+								],
+								"staging_bucket": {
+									"constant_value": "dataproc-staging-bucket123",
+								},
+								"worker_config": [
+									{
+										"machine_type": {
+											"constant_value": "e2-medium",
+										},
+										"num_instances": {
+											"constant_value": 2,
+										},
+									},
+								],
+							},
+						],
+						"graceful_decommission_timeout": {
+							"constant_value": "120s",
+						},
+						"labels": {
+							"constant_value": {
+								"application_division": "pci",
+								"application_name":     "",
+								"application_role":     "auth",
+								"au":                   "",
+								"created":              "20211001",
+								"environment":          "dev",
+								"gcp_region":           "us-central1",
+								"owner":                "wf",
+							},
+						},
+						"name": {
+							"constant_value": "cluster-wsar",
+						},
+						"project": {
+							"constant_value": "common",
+						},
+						"region": {
+							"constant_value": "us-central1",
+						},
+					},
+					"mode":                "managed",
+					"name":                "cluster-wsar",
+					"provider_config_key": "google-beta",
+					"schema_version":      0,
+					"type":                "google_dataproc_cluster",
+				},
+				{
+					"address": "google_project_iam_member.dataproc-worker",
+					"expressions": {
+						"member": {
+							"references": [
+								"google_service_account.dataproc-sa.email",
+								"google_service_account.dataproc-sa",
+							],
+						},
+						"project": {
+							"constant_value": "common",
+						},
+						"role": {
+							"constant_value": "roles/dataproc.worker",
+						},
+					},
+					"mode":                "managed",
+					"name":                "dataproc-worker",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_project_iam_member",
+				},
+				{
+					"address": "google_service_account.dataproc-sa",
+					"expressions": {
+						"account_id": {
+							"constant_value": "dataproc-sa-id",
+						},
+						"display_name": {
+							"constant_value": "Service Account",
+						},
+						"project": {
+							"constant_value": "common",
+						},
+					},
+					"mode":                "managed",
+					"name":                "dataproc-sa",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_service_account",
+				},
+			],
+			"variables": {
+				"access_token": {
+					"description": "access_token",
+					"sensitive":   true,
+				},
+			},
+		},
+	},
+	"format_version": "0.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_dataproc_cluster.cluster-wsae",
+					"mode":           "managed",
+					"name":           "cluster-wsae",
+					"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+					"schema_version": 0,
+					"sensitive_values": {
+						"cluster_config": [
+							{
+								"autoscaling_config": [],
+								"encryption_config": [
+									{},
+								],
+								"endpoint_config": [
+									{
+										"http_ports": {},
+									},
+								],
+								"gce_cluster_config": [
+									{
+										"service_account_scopes":   [],
+										"shielded_instance_config": [],
+										"tags": [
+											false,
+											false,
+										],
+									},
+								],
+								"initialization_action": [],
+								"lifecycle_config":      [],
+								"master_config": [
+									{
+										"accelerators":   [],
+										"disk_config":    [],
+										"instance_names": [],
+									},
+								],
+								"metastore_config": [],
+								"preemptible_worker_config": [
+									{
+										"disk_config":    [],
+										"instance_names": [],
+									},
+								],
+								"security_config": [],
+								"software_config": [
+									{
+										"override_properties": {},
+										"properties":          {},
+									},
+								],
+								"worker_config": [
+									{
+										"accelerators":   [],
+										"disk_config":    [],
+										"instance_names": [],
+									},
+								],
+							},
+						],
+						"labels": {},
+					},
+					"type": "google_dataproc_cluster",
+					"values": {
+						"cluster_config": [
+							{
+								"autoscaling_config": [],
+								"encryption_config": [
+									{
+										"kms_key_name": "",
+									},
+								],
+								"endpoint_config": [
+									{
+										"enable_http_port_access": false,
+									},
+								],
+								"gce_cluster_config": [
+									{
+										"internal_ip_only": true,
+										"metadata":         null,
+										"service_account":  "demo-sentinel-sa@common.iam.gserviceaccount.com",
+										"subnetwork":       "projects/common/regions/us-east1/subnetworks/savita-subnet-vpc-2",
+										"tags": [
+											"bar",
+											"foo",
+										],
+									},
+								],
+								"initialization_action": [],
+								"lifecycle_config":      [],
+								"master_config": [
+									{
+										"accelerators":  [],
+										"machine_type":  "e2-medium",
+										"num_instances": 1,
+									},
+								],
+								"metastore_config": [],
+								"preemptible_worker_config": [
+									{
+										"num_instances": 0,
+									},
+								],
+								"security_config": [],
+								"software_config": [
+									{
+										"image_version":       "1.3.7-deb9",
+										"optional_components": null,
+										"override_properties": {
+											"dataproc:dataproc.allow.zero.workers": "true",
+										},
+									},
+								],
+								"staging_bucket": "dataproc-staging-bucket123",
+								"worker_config": [
+									{
+										"accelerators":  [],
+										"machine_type":  "e2-medium",
+										"num_instances": 2,
+									},
+								],
+							},
+						],
+						"graceful_decommission_timeout": "120s",
+						"labels": {
+							"application_division": "pci",
+							"application_name":     "",
+							"application_role":     "auth",
+							"au":                   "",
+							"created":              "20211001",
+							"environment":          "dev",
+							"gcp_region":           "us-central1",
+							"owner":                "wf",
+						},
+						"name":     "cluster-wsae",
+						"project":  "common",
+						"region":   "us-east1",
+						"timeouts": null,
+					},
+				},
+				{
+					"address":        "google_dataproc_cluster.cluster-wsar",
+					"mode":           "managed",
+					"name":           "cluster-wsar",
+					"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+					"schema_version": 0,
+					"sensitive_values": {
+						"cluster_config": [
+							{
+								"autoscaling_config": [],
+								"encryption_config": [
+									{},
+								],
+								"endpoint_config": [
+									{
+										"http_ports": {},
+									},
+								],
+								"gce_cluster_config": [
+									{
+										"service_account_scopes": [
+											false,
+										],
+										"shielded_instance_config": [],
+										"tags": [
+											false,
+											false,
+										],
+									},
+								],
+								"initialization_action": [],
+								"lifecycle_config":      [],
+								"master_config": [
+									{
+										"accelerators":   [],
+										"disk_config":    [],
+										"instance_names": [],
+									},
+								],
+								"metastore_config": [],
+								"preemptible_worker_config": [
+									{
+										"disk_config":    [],
+										"instance_names": [],
+									},
+								],
+								"security_config": [],
+								"software_config": [
+									{
+										"override_properties": {},
+										"properties":          {},
+									},
+								],
+								"worker_config": [
+									{
+										"accelerators":   [],
+										"disk_config":    [],
+										"instance_names": [],
+									},
+								],
+							},
+						],
+						"labels": {},
+					},
+					"type": "google_dataproc_cluster",
+					"values": {
+						"cluster_config": [
+							{
+								"autoscaling_config": [],
+								"encryption_config": [
+									{
+										"kms_key_name": "",
+									},
+								],
+								"endpoint_config": [
+									{
+										"enable_http_port_access": false,
+									},
+								],
+								"gce_cluster_config": [
+									{
+										"internal_ip_only": true,
+										"metadata":         null,
+										"service_account_scopes": [
+											"https://www.googleapis.com/auth/cloud-platform",
+										],
+										"subnetwork": "projects/common/regions/us-central1/subnetworks/savita-subnet-vpc1",
+										"tags": [
+											"bar",
+											"foo",
+										],
+									},
+								],
+								"initialization_action": [],
+								"lifecycle_config":      [],
+								"master_config": [
+									{
+										"accelerators":  [],
+										"machine_type":  "e2-medium",
+										"num_instances": 1,
+									},
+								],
+								"metastore_config": [],
+								"preemptible_worker_config": [
+									{
+										"num_instances": 0,
+									},
+								],
+								"security_config": [],
+								"software_config": [
+									{
+										"image_version":       "1.3.7-deb9",
+										"optional_components": null,
+										"override_properties": {
+											"dataproc:dataproc.allow.zero.workers": "true",
+										},
+									},
+								],
+								"staging_bucket": "dataproc-staging-bucket123",
+								"worker_config": [
+									{
+										"accelerators":  [],
+										"machine_type":  "e2-medium",
+										"num_instances": 2,
+									},
+								],
+							},
+						],
+						"graceful_decommission_timeout": "120s",
+						"labels": {
+							"application_division": "pci",
+							"application_name":     "",
+							"application_role":     "auth",
+							"au":                   "",
+							"created":              "20211001",
+							"environment":          "dev",
+							"gcp_region":           "us-central1",
+							"owner":                "wf",
+						},
+						"name":     "cluster-wsar",
+						"project":  "common",
+						"region":   "us-central1",
+						"timeouts": null,
+					},
+				},
+				{
+					"address":        "google_project_iam_member.dataproc-worker",
+					"mode":           "managed",
+					"name":           "dataproc-worker",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"condition": [],
+					},
+					"type": "google_project_iam_member",
+					"values": {
+						"condition": [],
+						"project":   "common",
+						"role":      "roles/dataproc.worker",
+					},
+				},
+				{
+					"address":          "google_service_account.dataproc-sa",
+					"mode":             "managed",
+					"name":             "dataproc-sa",
+					"provider_name":    "registry.terraform.io/hashicorp/google",
+					"schema_version":   0,
+					"sensitive_values": {},
+					"type":             "google_service_account",
+					"values": {
+						"account_id":   "dataproc-sa-id",
+						"description":  null,
+						"disabled":     false,
+						"display_name": "Service Account",
+						"project":      "common",
+						"timeouts":     null,
+					},
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "google_dataproc_cluster.cluster-wsae",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"cluster_config": [
+						{
+							"autoscaling_config": [],
+							"encryption_config": [
+								{
+									"kms_key_name": "",
+								},
+							],
+							"endpoint_config": [
+								{
+									"enable_http_port_access": false,
+								},
+							],
+							"gce_cluster_config": [
+								{
+									"internal_ip_only": true,
+									"metadata":         null,
+									"service_account":  "demo-sentinel-sa@common.iam.gserviceaccount.com",
+									"subnetwork":       "projects/common/regions/us-east1/subnetworks/savita-subnet-vpc-2",
+									"tags": [
+										"bar",
+										"foo",
+									],
+								},
+							],
+							"initialization_action": [],
+							"lifecycle_config":      [],
+							"master_config": [
+								{
+									"accelerators":  [],
+									"machine_type":  "e2-medium",
+									"num_instances": 1,
+								},
+							],
+							"metastore_config": [],
+							"preemptible_worker_config": [
+								{
+									"num_instances": 0,
+								},
+							],
+							"security_config": [],
+							"software_config": [
+								{
+									"image_version":       "1.3.7-deb9",
+									"optional_components": null,
+									"override_properties": {
+										"dataproc:dataproc.allow.zero.workers": "true",
+									},
+								},
+							],
+							"staging_bucket": "dataproc-staging-bucket123",
+							"worker_config": [
+								{
+									"accelerators":  [],
+									"machine_type":  "e2-medium",
+									"num_instances": 2,
+								},
+							],
+						},
+					],
+					"graceful_decommission_timeout": "120s",
+					"labels": {
+						"application_division": "pci",
+						"application_name":     "",
+						"application_role":     "auth",
+						"au":                   "",
+						"created":              "20211001",
+						"environment":          "dev",
+						"gcp_region":           "us-central1",
+						"owner":                "wf",
+					},
+					"name":     "cluster-wsae",
+					"project":  "common",
+					"region":   "us-east1",
+					"timeouts": null,
+				},
+				"after_sensitive": {
+					"cluster_config": [
+						{
+							"autoscaling_config": [],
+							"encryption_config": [
+								{},
+							],
+							"endpoint_config": [
+								{
+									"http_ports": {},
+								},
+							],
+							"gce_cluster_config": [
+								{
+									"service_account_scopes":   [],
+									"shielded_instance_config": [],
+									"tags": [
+										false,
+										false,
+									],
+								},
+							],
+							"initialization_action": [],
+							"lifecycle_config":      [],
+							"master_config": [
+								{
+									"accelerators":   [],
+									"disk_config":    [],
+									"instance_names": [],
+								},
+							],
+							"metastore_config": [],
+							"preemptible_worker_config": [
+								{
+									"disk_config":    [],
+									"instance_names": [],
+								},
+							],
+							"security_config": [],
+							"software_config": [
+								{
+									"override_properties": {},
+									"properties":          {},
+								},
+							],
+							"worker_config": [
+								{
+									"accelerators":   [],
+									"disk_config":    [],
+									"instance_names": [],
+								},
+							],
+						},
+					],
+					"labels": {},
+				},
+				"after_unknown": {
+					"cluster_config": [
+						{
+							"autoscaling_config": [],
+							"bucket":             true,
+							"encryption_config": [
+								{},
+							],
+							"endpoint_config": [
+								{
+									"http_ports": true,
+								},
+							],
+							"gce_cluster_config": [
+								{
+									"network":                  true,
+									"service_account_scopes":   true,
+									"shielded_instance_config": true,
+									"tags": [
+										false,
+										false,
+									],
+									"zone": true,
+								},
+							],
+							"initialization_action": [],
+							"lifecycle_config":      [],
+							"master_config": [
+								{
+									"accelerators":     [],
+									"disk_config":      true,
+									"image_uri":        true,
+									"instance_names":   true,
+									"min_cpu_platform": true,
+								},
+							],
+							"metastore_config": [],
+							"preemptible_worker_config": [
+								{
+									"disk_config":    true,
+									"instance_names": true,
+								},
+							],
+							"security_config": [],
+							"software_config": [
+								{
+									"override_properties": {},
+									"properties":          true,
+								},
+							],
+							"temp_bucket": true,
+							"worker_config": [
+								{
+									"accelerators":     [],
+									"disk_config":      true,
+									"image_uri":        true,
+									"instance_names":   true,
+									"min_cpu_platform": true,
+								},
+							],
+						},
+					],
+					"id":     true,
+					"labels": {},
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "cluster-wsae",
+			"provider_name": "registry.terraform.io/hashicorp/google-beta",
+			"type":          "google_dataproc_cluster",
+		},
+		{
+			"address": "google_dataproc_cluster.cluster-wsar",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"cluster_config": [
+						{
+							"autoscaling_config": [],
+							"encryption_config": [
+								{
+									"kms_key_name": "",
+								},
+							],
+							"endpoint_config": [
+								{
+									"enable_http_port_access": false,
+								},
+							],
+							"gce_cluster_config": [
+								{
+									"internal_ip_only": true,
+									"metadata":         null,
+									"service_account_scopes": [
+										"https://www.googleapis.com/auth/cloud-platform",
+									],
+									"subnetwork": "projects/common/regions/us-central1/subnetworks/savita-subnet-vpc1",
+									"tags": [
+										"bar",
+										"foo",
+									],
+								},
+							],
+							"initialization_action": [],
+							"lifecycle_config":      [],
+							"master_config": [
+								{
+									"accelerators":  [],
+									"machine_type":  "e2-medium",
+									"num_instances": 1,
+								},
+							],
+							"metastore_config": [],
+							"preemptible_worker_config": [
+								{
+									"num_instances": 0,
+								},
+							],
+							"security_config": [],
+							"software_config": [
+								{
+									"image_version":       "1.3.7-deb9",
+									"optional_components": null,
+									"override_properties": {
+										"dataproc:dataproc.allow.zero.workers": "true",
+									},
+								},
+							],
+							"staging_bucket": "dataproc-staging-bucket123",
+							"worker_config": [
+								{
+									"accelerators":  [],
+									"machine_type":  "e2-medium",
+									"num_instances": 2,
+								},
+							],
+						},
+					],
+					"graceful_decommission_timeout": "120s",
+					"labels": {
+						"application_division": "pci",
+						"application_name":     "",
+						"application_role":     "auth",
+						"au":                   "",
+						"created":              "20211001",
+						"environment":          "dev",
+						"gcp_region":           "us-central1",
+						"owner":                "wf",
+					},
+					"name":     "cluster-wsar",
+					"project":  "common",
+					"region":   "us-central1",
+					"timeouts": null,
+				},
+				"after_sensitive": {
+					"cluster_config": [
+						{
+							"autoscaling_config": [],
+							"encryption_config": [
+								{},
+							],
+							"endpoint_config": [
+								{
+									"http_ports": {},
+								},
+							],
+							"gce_cluster_config": [
+								{
+									"service_account_scopes": [
+										false,
+									],
+									"shielded_instance_config": [],
+									"tags": [
+										false,
+										false,
+									],
+								},
+							],
+							"initialization_action": [],
+							"lifecycle_config":      [],
+							"master_config": [
+								{
+									"accelerators":   [],
+									"disk_config":    [],
+									"instance_names": [],
+								},
+							],
+							"metastore_config": [],
+							"preemptible_worker_config": [
+								{
+									"disk_config":    [],
+									"instance_names": [],
+								},
+							],
+							"security_config": [],
+							"software_config": [
+								{
+									"override_properties": {},
+									"properties":          {},
+								},
+							],
+							"worker_config": [
+								{
+									"accelerators":   [],
+									"disk_config":    [],
+									"instance_names": [],
+								},
+							],
+						},
+					],
+					"labels": {},
+				},
+				"after_unknown": {
+					"cluster_config": [
+						{
+							"autoscaling_config": [],
+							"bucket":             true,
+							"encryption_config": [
+								{},
+							],
+							"endpoint_config": [
+								{
+									"http_ports": true,
+								},
+							],
+							"gce_cluster_config": [
+								{
+									"network":         true,
+									"service_account": true,
+									"service_account_scopes": [
+										false,
+									],
+									"shielded_instance_config": true,
+									"tags": [
+										false,
+										false,
+									],
+									"zone": true,
+								},
+							],
+							"initialization_action": [],
+							"lifecycle_config":      [],
+							"master_config": [
+								{
+									"accelerators":     [],
+									"disk_config":      true,
+									"image_uri":        true,
+									"instance_names":   true,
+									"min_cpu_platform": true,
+								},
+							],
+							"metastore_config": [],
+							"preemptible_worker_config": [
+								{
+									"disk_config":    true,
+									"instance_names": true,
+								},
+							],
+							"security_config": [],
+							"software_config": [
+								{
+									"override_properties": {},
+									"properties":          true,
+								},
+							],
+							"temp_bucket": true,
+							"worker_config": [
+								{
+									"accelerators":     [],
+									"disk_config":      true,
+									"image_uri":        true,
+									"instance_names":   true,
+									"min_cpu_platform": true,
+								},
+							],
+						},
+					],
+					"id":     true,
+					"labels": {},
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "cluster-wsar",
+			"provider_name": "registry.terraform.io/hashicorp/google-beta",
+			"type":          "google_dataproc_cluster",
+		},
+		{
+			"address": "google_project_iam_member.dataproc-worker",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"condition": [],
+					"project":   "common",
+					"role":      "roles/dataproc.worker",
+				},
+				"after_sensitive": {
+					"condition": [],
+				},
+				"after_unknown": {
+					"condition": [],
+					"etag":      true,
+					"id":        true,
+					"member":    true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "dataproc-worker",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_project_iam_member",
+		},
+		{
+			"address": "google_service_account.dataproc-sa",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"account_id":   "dataproc-sa-id",
+					"description":  null,
+					"disabled":     false,
+					"display_name": "Service Account",
+					"project":      "common",
+					"timeouts":     null,
+				},
+				"after_sensitive": {},
+				"after_unknown": {
+					"email":     true,
+					"id":        true,
+					"name":      true,
+					"unique_id": true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "dataproc-sa",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_service_account",
+		},
+	],
+	"terraform_version": "1.0.8",
+	"variables": {
+		"access_token": {
+			"value": "REDACTED_SENSITIVE",
+		},
+	},
+}

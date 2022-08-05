@@ -1,0 +1,38 @@
+# This policy uses the Sentinel tfplan/v2 import to require that
+# all generic functions to validate
+
+# Note that the comparison is case-sensitive.
+
+import "strings"
+import "types"
+import "tfplan-functions" as plan
+
+//**********************Variables to be used*********************************
+key = ""
+selected_node = null
+//***************************************************************************
+
+check_key_existance = func(map_data, key) {
+	keys_data = keys(map_data)
+	result = false
+
+	for keys_data as key_data {
+		if key_data is key {
+			result = true
+			return result
+		}
+	}
+
+	return result
+}
+
+create_sub_main_key_list = func(main_list, sub_list, address){
+	if check_key_existance(main_list, address) is not true {
+		main_list[address] = []
+	}
+	if check_key_existance(sub_list, address) is not true {
+		sub_list[address] = []
+	}
+
+	return null
+}

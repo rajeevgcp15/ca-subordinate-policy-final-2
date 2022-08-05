@@ -1,0 +1,144 @@
+import "tfplan-functions" as plan
+import "generic-functions" as gen
+import "strings"
+import "types"
+
+//******Resource Types SSL Enforce Param Map***********************************
+resourceTypesSSLEnforceMap = {
+	"google_dataproc_cluster": {
+		"key": "cluster_config.0.endpoint_config.0.enable_http_port_access",
+	},
+}
+
+//**********************Variables to be used***********************************
+selected_node = null
+messages = {}
+
+//******Following function is being used to validate the SSL settings as per the GCP resource's requirement
+//address is the key and rc is the value of resource_changes in the mock of tfplan-v2 file
+
+check_endpoint_config = func(address, rc) {
+
+	key = resourceTypesSSLEnforceMap[rc.type]["key"]
+	selected_node = plan.evaluate_attribute(rc, key)
+
+	if types.type_of(selected_node) is not "undefined" and selected_node {
+		return "Http port's access needs to be disabled for the " + plan.to_string(address) + " services, please set value false to make it disabled"
+	} else {
+		return null
+	}
+}
+
+//*******************validating enable_http_port_access node*******************
+messages_http = {}
+
+for resourceTypesSSLEnforceMap as key_address, _ {
+
+	# Get all the instances on the basis of type
+	allResources = plan.find_resources(key_address)
+
+	for allResources as address, rc {
+		message = null
+		message = check_endpoint_config(address, rc)
+
+		if types.type_of(message) is not "null" {
+
+			gen.create_sub_main_key_list(messages, messages_http, address)
+
+			append(messages_http[address], message)
+			append(messages[address], message)
+
+		}
+	}
+}
+
+//*****************************************************************************
+
+GCP_SSL_ENFORCE = rule {
+	length(messages_http) is 0
+}
+
+# Main rule
+print(messages)
+
+#####################################################################################
+################Policy CA - GCP_CAS_ISSUANCEPOLICY and GCP_CAS_ISSUANCEPOLICYCEL ####
+#####################################################################################
+
+allPrivatecaCAPoolInstances = plan.find_resources("google_privateca_ca_pool")
+
+# Resource google_privateca_ca_pool
+# Policy 1 - google_privateca_ca_pool.issuance_policy
+
+violations_ca_pool_issuance_policy = {}
+for allPrivatecaCAPoolInstances as address, rc {
+	ca_pool_issuance_policy = plan.evaluate_attribute(rc, "issuance_policy")
+	if types.type_of(ca_pool_issuance_policy) is "undefined" or types.type_of(ca_pool_issuance_policy) is "null" {
+		violations_ca_pool_issuance_policy[address] = rc
+		print("The value for ca_pool_issuance_policy in Resource " + address + " can't be null or undefined")
+	} else {
+		if length(ca_pool_issuance_policy) == 0 {
+			violations_ca_pool_issuance_policy[address] = rc
+			print("Length of ca_pool_issuance_policy in Resource " + address + " must be greater then zero")
+		}
+	}
+}
+
+GCP_CAS_ISSUANCEPOLICY = rule { length(violations_ca_pool_issuance_policy) is 0 }
+
+# Policy 2 - google_privateca_ca_pool.issuance_policy.identity_constraints.cel_expression.expression
+
+violations_cel_expression = {}
+for allPrivatecaCAPoolInstances as address, rc {
+	ca_pool_cel_expression = plan.evaluate_attribute(rc, "issuance_policy.0.identity_constraints.0.cel_expression.0.expression")
+	if types.type_of(ca_pool_cel_expression) is "undefined" or types.type_of(ca_pool_cel_expression) is "null" {
+		violations_cel_expression[address] = rc
+		print("The value for ca_pool_cel_expression in Resource " + address + " can't be null or undefined")
+	} else {
+		if length(ca_pool_cel_expression) == 0 {
+			violations_cel_expression[address] = rc
+			print("Length of ca_pool_cel_expression in Resource " + address + " must be greater then zero")
+		}
+	}
+}
+
+GCP_CAS_ISSUANCEPOLICYCEL = rule { length(violations_cel_expression) is 0 }
+
+#####################################################################################
+########################### Policy CA - GCP_CAS_CASUBORDINATE #######################
+#####################################################################################
+
+# Get all CA Instances
+allCertAuthorityInstances = plan.find_resources("google_privateca_certificate_authority")
+
+messgages_ca_subordinate = {}
+for allCertAuthorityInstances as address, rc {
+	ca_type = plan.evaluate_attribute(rc, "type")
+
+	if (types.type_of(ca_type) == "null" or types.type_of(ca_type) == "undefined") {
+		print("\"type\" not defined for resource: " + address)
+		messgages_ca_subordinate[address] = rc
+	} else {
+		if ca_type == "SUBORDINATE" {
+			ca_sub_config = plan.evaluate_attribute(rc, "subordinate_config.0.certificate_authority")
+			ca_sub_undefined = rule { types.type_of(ca_sub_config) == "undefined" or types.type_of(ca_sub_config) is "null" }
+			if ca_sub_undefined {
+				ca_sub_after_unknown = plan.evaluate_attribute(rc.change.after_unknown, "subordinate_config.0.certificate_authority")
+				if (types.type_of(ca_sub_after_unknown) is "undefined" or types.type_of(ca_sub_after_unknown) is "null") {
+					print("Please define subordinate_config block for resource: " + address + "  and define certificate_authority attribute")
+					messgages_ca_subordinate[address] = rc
+				}
+			}
+
+		}
+	}
+
+}
+
+GCP_CAS_CASUBORDINATE = rule { length(messgages_ca_subordinate) is 0 }
+
+# Main Rule #
+
+main = rule {
+	GCP_CAS_ISSUANCEPOLICY and GCP_CAS_ISSUANCEPOLICYCEL and GCP_SSL_ENFORCE and GCP_CAS_CASUBORDINATE
+}
